@@ -21,7 +21,7 @@ def start_game():
     Let's play Py Pac Poe!
     ----------------------
     ''')
-    player_choice = input("Choose your player (X or O): ")
+    player_choice = input("Choose your player (X or O): ").lower()
     player = player_choice
 
 def board():
@@ -45,5 +45,15 @@ def round():
     board()
 
     player_cell = input(f'Player {player}, choose your cell on the board (ex: B2): ').lower()
-    board_dictionary[player_cell] = player
+    board_dictionary[player_cell] = player.upper()
 
+    toggle_player()
+
+def toggle_player():
+
+    global player
+
+    if player == "x":
+        player = "o"
+    else:
+        player = "x"
