@@ -4,7 +4,7 @@
 
 player = ""
 
-boardDictionary = {
+board_dictionary = {
     "a1": "", "a2": "", "a3": "",
     "b1": "", "b2": "", "b3": "",
     "c1": "", "c2": "", "c3": ""
@@ -12,7 +12,7 @@ boardDictionary = {
 
 # functions
 
-def startGame():
+def start_game():
 
     global player
 
@@ -21,20 +21,29 @@ def startGame():
     Let's play Py Pac Poe!
     ----------------------
     ''')
-    playerChoice = input("Choose your player (X or O): ")
-    player = playerChoice
+    player_choice = input("Choose your player (X or O): ")
+    player = player_choice
 
 def board():
 
-    global boardDictionary
+    global board_dictionary
 
     print(f'''
        A   B   C
-    1) {boardDictionary["a1"]}  | {boardDictionary["b1"]}  |  {boardDictionary["c1"]}
+    1) {board_dictionary["a1"]}  | {board_dictionary["b1"]}  |  {board_dictionary["c1"]}
     -------------
-    2) {boardDictionary["a2"]}  | {boardDictionary["b2"]}  | {boardDictionary["c2"]}
+    2) {board_dictionary["a2"]}  | {board_dictionary["b2"]}  | {board_dictionary["c2"]}
     -------------
-    3) {boardDictionary["a3"]}  | {boardDictionary["b3"]}  | {boardDictionary["c3"]}
+    3) {board_dictionary["a3"]}  | {board_dictionary["b3"]}  | {board_dictionary["c3"]}
     ''')
 
-board()
+def round():
+
+    global player
+    global board_dictionary
+
+    board()
+
+    player_cell = input(f'Player {player}, choose your cell on the board (ex: B2): ').lower()
+    board_dictionary[player_cell] = player
+
