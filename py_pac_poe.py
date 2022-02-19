@@ -30,9 +30,11 @@ def board():
 
     print(f'''
        A   B   C
-    1) {boardDictionary["a1"]}  |  {boardDictionary["b1"]} |  {boardDictionary["c1"]}
+    1) {boardDictionary["a1"]}  | {boardDictionary["b1"]}  |  {boardDictionary["c1"]}
     -------------
     2) {boardDictionary["a2"]}  | {boardDictionary["b2"]}  | {boardDictionary["c2"]}
     -------------
     3) {boardDictionary["a3"]}  | {boardDictionary["b3"]}  | {boardDictionary["c3"]}
     ''')
+
+board()
