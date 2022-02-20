@@ -2,9 +2,6 @@
 
 # variables
 
-from re import X
-
-
 player = ""
 
 board_dictionary = {
