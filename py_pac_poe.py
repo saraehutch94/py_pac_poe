@@ -22,7 +22,12 @@ def start_game():
     ----------------------
     ''')
     player_choice = input("Choose your player (X or O): ").upper()
-    player = player_choice
+
+    if player_choice == "X" or player_choice == "O":
+        player = player_choice
+    else:
+        print(f"{player_choice} is not a valid choice. Please choose X or O.")
+        start_game()
 
 def board():
 
