@@ -89,7 +89,12 @@ def round():
     board()
 
     player_cell = input(f'Player {player}, choose your cell on the board (ex: B2): ').lower()
-    board_dictionary[player_cell] = player
+
+    if player_cell in board_dictionary:
+        board_dictionary[player_cell] = player
+    else:
+        print(f'{player_cell} is not a valid choice. Please check the board choices and try again.')
+        round()
 
     determine_win()
 
