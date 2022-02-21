@@ -52,10 +52,12 @@ def determine_win():
 
     if (board_dictionary["a1"] == "X" and board_dictionary["b1"] == "X" and board_dictionary["c1"] == "X") or (board_dictionary["a2"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c2"] == "X") or (board_dictionary["a3"] == "X" and board_dictionary["b3"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a1"] == "X" and board_dictionary["a2"] == "X" and board_dictionary["a3"] == "X") or (board_dictionary["b1"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["b3"] == "X") or (board_dictionary["c1"] == "X" and board_dictionary["c2"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a1"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a3"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c1"] == "X"):
         if (board_dictionary["a1"] == "O" and board_dictionary["b1"] == "O" and board_dictionary["c1"] == "O") or (board_dictionary["a2"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c2"] == "O") or (board_dictionary["a3"] == "O" and board_dictionary["b3"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a1"] == "O" and board_dictionary["a2"] == "O" and board_dictionary["a3"] == "O") or (board_dictionary["b1"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["b3"] == "O") or (board_dictionary["c1"] == "O" and board_dictionary["c2"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a1"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a3"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c1"] == "O"):
+                board()
                 print("There is a tie!")
                 return
         else:
             if last_round == True:
+                board()
                 print("X wins!")
                 return
             else:
@@ -64,16 +66,21 @@ def determine_win():
                 round()
     elif (board_dictionary["a1"] == "O" and board_dictionary["b1"] == "O" and board_dictionary["c1"] == "O") or (board_dictionary["a2"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c2"] == "O") or (board_dictionary["a3"] == "O" and board_dictionary["b3"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a1"] == "O" and board_dictionary["a2"] == "O" and board_dictionary["a3"] == "O") or (board_dictionary["b1"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["b3"] == "O") or (board_dictionary["c1"] == "O" and board_dictionary["c2"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a1"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a3"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c1"] == "O"):
         if (board_dictionary["a1"] == "X" and board_dictionary["b1"] == "X" and board_dictionary["c1"] == "X") or (board_dictionary["a2"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c2"] == "X") or (board_dictionary["a3"] == "X" and board_dictionary["b3"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a1"] == "X" and board_dictionary["a2"] == "X" and board_dictionary["a3"] == "X") or (board_dictionary["b1"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["b3"] == "X") or (board_dictionary["c1"] == "X" and board_dictionary["c2"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a1"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a3"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c1"] == "X"):
+                board()
                 print("There is a tie!")
                 return
         else:
             if last_round == True:
+                board()
                 print("O wins!")
                 return
             else:
                 last_round = True
                 toggle_player()
                 round()
+    elif "" not in board_dictionary.values():
+        board()
+        print("Game over, try again.")
     else:
         toggle_player()
         round()
