@@ -10,6 +10,8 @@ board_dictionary = {
     "c1": "", "c2": "", "c3": ""
 }
 
+last_round = False
+
 # functions
 
 def start_game():
@@ -35,7 +37,7 @@ def board():
 
     print(f'''
        A   B   C
-    1) {board_dictionary["a1"]}  | {board_dictionary["b1"]}  |  {board_dictionary["c1"]}
+    1) {board_dictionary["a1"]}  | {board_dictionary["b1"]}  | {board_dictionary["c1"]}
     -------------
     2) {board_dictionary["a2"]}  | {board_dictionary["b2"]}  | {board_dictionary["c2"]}
     -------------
@@ -46,42 +48,35 @@ def determine_win():
 
     global player
     global board_dictionary
+    global last_round
 
-    if (board_dictionary["a1"] == player and board_dictionary["b1"] == player and board_dictionary["c1"] == player) or (board_dictionary["a2"] == player and board_dictionary["b2"] == player and board_dictionary["c2"] == player) or (board_dictionary["a3"] == player and board_dictionary["b3"] == player and board_dictionary["c3"] == player) or (board_dictionary["a1"] == player and board_dictionary["a2"] == player and board_dictionary["a3"] == player) or (board_dictionary["b1"] == player and board_dictionary["b2"] == player and board_dictionary["b3"] == player) or (board_dictionary["c1"] == player and board_dictionary["c2"] == player and board_dictionary["c3"] == player) or (board_dictionary["a1"] == player and board_dictionary["b2"] == player and board_dictionary["c3"] == player) or (board_dictionary["a3"] == player and board_dictionary["b2"] == player and board_dictionary["c1"] == player):
-        board()
-        print(f"{player} wins!")
-        return
+    if (board_dictionary["a1"] == "X" and board_dictionary["b1"] == "X" and board_dictionary["c1"] == "X") or (board_dictionary["a2"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c2"] == "X") or (board_dictionary["a3"] == "X" and board_dictionary["b3"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a1"] == "X" and board_dictionary["a2"] == "X" and board_dictionary["a3"] == "X") or (board_dictionary["b1"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["b3"] == "X") or (board_dictionary["c1"] == "X" and board_dictionary["c2"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a1"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a3"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c1"] == "X"):
+        if (board_dictionary["a1"] == "O" and board_dictionary["b1"] == "O" and board_dictionary["c1"] == "O") or (board_dictionary["a2"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c2"] == "O") or (board_dictionary["a3"] == "O" and board_dictionary["b3"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a1"] == "O" and board_dictionary["a2"] == "O" and board_dictionary["a3"] == "O") or (board_dictionary["b1"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["b3"] == "O") or (board_dictionary["c1"] == "O" and board_dictionary["c2"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a1"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a3"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c1"] == "O"):
+                print("There is a tie!")
+                return
+        else:
+            if last_round == True:
+                print("X wins!")
+                return
+            else:
+                last_round = True
+                toggle_player()
+                round()
+    elif (board_dictionary["a1"] == "O" and board_dictionary["b1"] == "O" and board_dictionary["c1"] == "O") or (board_dictionary["a2"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c2"] == "O") or (board_dictionary["a3"] == "O" and board_dictionary["b3"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a1"] == "O" and board_dictionary["a2"] == "O" and board_dictionary["a3"] == "O") or (board_dictionary["b1"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["b3"] == "O") or (board_dictionary["c1"] == "O" and board_dictionary["c2"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a1"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c3"] == "O") or (board_dictionary["a3"] == "O" and board_dictionary["b2"] == "O" and board_dictionary["c1"] == "O"):
+        if (board_dictionary["a1"] == "X" and board_dictionary["b1"] == "X" and board_dictionary["c1"] == "X") or (board_dictionary["a2"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c2"] == "X") or (board_dictionary["a3"] == "X" and board_dictionary["b3"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a1"] == "X" and board_dictionary["a2"] == "X" and board_dictionary["a3"] == "X") or (board_dictionary["b1"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["b3"] == "X") or (board_dictionary["c1"] == "X" and board_dictionary["c2"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a1"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c3"] == "X") or (board_dictionary["a3"] == "X" and board_dictionary["b2"] == "X" and board_dictionary["c1"] == "X"):
+                print("There is a tie!")
+                return
+        else:
+            if last_round == True:
+                print("O wins!")
+                return
+            else:
+                last_round = True
+                toggle_player()
+                round()
     else:
         toggle_player()
         round()
-
-    # if (board_dictionary["a1"] == player) and (board_dictionary["b1"] == player) and (board_dictionary["c1"] == player):
-    #     print(f"{player} wins!")
-    #     return
-    # elif (board_dictionary["a2"] == player) and (board_dictionary["b2"] == player) and (board_dictionary["c2"] == player):
-    #     print(f"{player} wins!")
-    #     return
-    # elif (board_dictionary["a3"] == player) and (board_dictionary["b3"] == player) and (board_dictionary["c3"] == player):
-    #     print(f"{player} wins!")
-    #     return
-    # elif (board_dictionary["a1"] == player) and (board_dictionary["a2"] == player) and (board_dictionary["a3"] == player):
-    #     print(f"{player} wins!")
-    #     return
-    # elif (board_dictionary["b1"] == player) and (board_dictionary["b2"] == player) and (board_dictionary["b3"] == player):
-    #     print(f"{player} wins!")
-    #     return
-    # elif (board_dictionary["c1"] == player) and (board_dictionary["c2"] == player) and (board_dictionary["c3"] == player):
-    #     print(f"{player} wins!")
-    #     return
-    # elif (board_dictionary["a1"] == player) and (board_dictionary["b2"] == player) and (board_dictionary["c3"] == player):
-    #     print(f"{player} wins!")
-    #     return
-    # elif (board_dictionary["c1"] == player) and (board_dictionary["b2"] == player) and (board_dictionary["a3"] == player):
-    #     print(f"{player} wins!")
-    #     return
-    # else:
-    #     toggle_player()
-    #     round()
 
 def round():
 
